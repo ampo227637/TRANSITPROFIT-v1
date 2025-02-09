@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TRANSITPROFIT_v1.Stakeholder"
+             Title="Stakeholders"
+             BackgroundColor="#E5E5E5">
+
+    <VerticalStackLayout Padding="20" 
+                         Spacing="10">
+        
+        <!-- Search Bar -->
+        <SearchBar Placeholder="Search" 
+                   BackgroundColor="White" />
+
+        <!-- Tabs -->
+        <Grid ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Members"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    BorderColor="Red"
+                    BorderWidth="2"
+                    CornerRadius="10"
+                    Grid.Column="0" />
+
+            <Button Text="Admin"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    BorderColor="Transparent"
+                    CornerRadius="10"
+                    Grid.Column="1" />
+        </Grid>
+
+        <!-- Section Title -->
+        <Label Text="Members"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="Black" />
+
+        <!-- Action Buttons -->
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Add New" 
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontAttributes="Bold" />
+            <Button Text="Import Members" 
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontAttributes="Bold" />
+            <Button Text="Export (Excel)" 
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontAttributes="Bold" />
+        </HorizontalStackLayout>
+
+        <!-- Table Headers -->
+        <Grid ColumnSpacing="5" BackgroundColor="White" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="PHOTO" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="0" 
+                   TextColor="Black"/>
+            
+            <Label Text="ID" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="1" 
+                   TextColor="Black"/>
+            
+            <Label Text="NAME" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="2" 
+                   TextColor="Black"/>
+            
+            <Label Text="CONTACT" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="3" 
+                   TextColor="Black"/>
+            
+            <Label Text="POSITION" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="4" 
+                   TextColor="Black"/>
+            
+            <Label Text="STATUS" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="5" 
+                   TextColor="Black"/>
+            
+            <Label Text="EMAIL" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="6" 
+                   TextColor="Black"/>
+            
+            <Label Text="PASSWORD" 
+                   FontSize="14" 
+                   FontAttributes="Bold" 
+                   Grid.Column="7" 
+                   TextColor="Black"/>
+        </Grid>
+
+        <!-- Table Content -->
+        <Frame BorderColor="Black" Padding="0" CornerRadius="5" HeightRequest="400">
+            <ScrollView>
+                <StackLayout>
+                    <!-- Add rows dynamically from the backend data -->
+                    <Grid ColumnSpacing="5" Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Sample Row -->
+                        <Label Text="Image" 
+                               FontSize="14" 
+                               Grid.Column="0"  />
+                        <Label Text="000001" 
+                               FontSize="14" 
+                               Grid.Column="1" />
+                        <Label Text="John Doe" 
+                               FontSize="14"
+                               Grid.Column="2" />
+                        <Label Text="123456789" 
+                               FontSize="14" 
+                               Grid.Column="3" />
+                        <Label Text="Manager" 
+                               FontSize="14" 
+                               Grid.Column="4" />
+                        <Label Text="Active" 
+                               FontSize="14" 
+                               Grid.Column="5" />
+                        <Label Text="john.doe@example.com" 
+                               FontSize="14" 
+                               Grid.Column="6" />
+                        <Label Text="********" 
+                               FontSize="14" 
+                               Grid.Column="7" />
+                    </Grid>
+                    <!-- Repeat similar rows as needed -->
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+    </VerticalStackLayout>
+
+</ContentPage>

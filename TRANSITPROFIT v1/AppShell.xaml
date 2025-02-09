@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TRANSITPROFIT_v1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TRANSITPROFIT_v1"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarIsVisible="False"
+    Title="TRANSITPROFIT_v1">
+
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout>
+            <Image
+                Source="dotnet_bot.png"
+                WidthRequest="100"
+                HeightRequest="100" />
+            <Label
+                Text="User Name"
+                HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem
+        Title="Dashboard"
+        FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Stakeholder"
+        FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+            Title="Stakeholder"
+            ContentTemplate="{DataTemplate local:Stakeholder}"
+            Route="Stakeholder" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Reports"
+        FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+            Title="Reports"
+            ContentTemplate="{DataTemplate local:Report}"
+            Route="Report" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Vehicles"
+        FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+            Title="Vehicles"
+            ContentTemplate="{DataTemplate local:Vehicle}"
+            Route="Vehicle" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Maintenance"
+        FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+            Title="Maintenance"
+            ContentTemplate="{DataTemplate local:Maintenance}"
+            Route="Maintenance" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Settings"
+        FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+            Title="Settings"
+            ContentTemplate="{DataTemplate local:Settings}"
+            Route="Settings" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Logout"
+        FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent
+            Title="Logout"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="Logout" />
+    </FlyoutItem>
+
+</Shell>

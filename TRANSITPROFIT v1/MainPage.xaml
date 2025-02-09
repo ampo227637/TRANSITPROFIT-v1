@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TRANSITPROFIT_v1.MainPage"
+             BackgroundColor="White">
+
+    <Grid RowSpacing="10" 
+          ColumnSpacing="10" 
+          Padding="20">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Top Section -->
+        <Grid Grid.Row="0" 
+              ColumnSpacing="10" 
+              RowSpacing="10" 
+              BackgroundColor="White">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Revenue -->
+            <Frame Grid.Column="0" 
+                   BackgroundColor="#F1F1F1" 
+                   CornerRadius="5" 
+                   Padding="10" 
+                   HasShadow="False">
+                
+                <StackLayout>
+                    <Label Text="REVENUE" 
+                           FontSize="16" 
+                           TextColor="Black" />
+                    
+                    <Label 
+                           Text="0.00" 
+                           FontSize="24" 
+                           TextColor="Black" 
+                           FontAttributes="Bold" 
+                           HorizontalTextAlignment="Center" />
+                    
+                </StackLayout>
+            </Frame>
+
+            <!-- Fuel Expenses -->
+            <Frame Grid.Column="1" 
+                   BackgroundColor="#F1F1F1" 
+                   CornerRadius="5" 
+                   Padding="10" 
+                   HasShadow="False">
+                
+                <StackLayout>
+                    <Label Text="FUEL EXPENSES" 
+                           FontSize="16" 
+                           TextColor="Black" />
+                    
+                    <Label Text="0.00" 
+                           FontSize="24" 
+                           TextColor="Black" 
+                           FontAttributes="Bold" 
+                           HorizontalTextAlignment="Center" />
+                    
+                </StackLayout>
+            </Frame>
+
+            <!-- Passengers -->
+            <Frame Grid.Column="2" 
+                   BackgroundColor="#F1F1F1" 
+                   CornerRadius="5" 
+                   Padding="10" 
+                   HasShadow="False">
+                
+                <StackLayout>
+                    <Label Text="PASSENGERS" 
+                           FontSize="16" 
+                           TextColor="Black" />
+                    
+                    <Label Text="0.00" 
+                           FontSize="24" 
+                           TextColor="Black" 
+                           FontAttributes="Bold" 
+                           HorizontalTextAlignment="Center" />
+                    
+                </StackLayout>
+            </Frame>
+
+            <!-- Active Vehicle -->
+            <Frame Grid.Column="3" 
+                   BackgroundColor="#F1F1F1" 
+                   CornerRadius="5" 
+                   Padding="10" 
+                   HasShadow="False">
+                
+                <StackLayout>
+                    <Label Text="ACTIVE VEHICLE" 
+                           FontSize="16" 
+                           TextColor="Black" 
+                           HorizontalTextAlignment="Center"/>
+                    
+                    <Label Text="PLACIDA" 
+                           FontSize="14" 
+                           TextColor="Black" />
+                    
+                    <Label Text="CALLUMHIGHWAY" 
+                           FontSize="14" 
+                           TextColor="Black" />
+                    
+                    <Label Text="BANKING" 
+                           FontSize="14" 
+                           TextColor="Black" />
+                    
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+        <!-- Bottom Section -->
+        <Grid Grid.Row="1" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Active Driver List -->
+            <Frame Grid.Column="0" 
+                   BackgroundColor="#F1F1F1" 
+                   CornerRadius="5" 
+                   Padding="10" 
+                   HasShadow="False">
+                
+                <StackLayout>
+                    <Label Text="ACTIVE DRIVER" 
+                           FontSize="16" 
+                           TextColor="Black" />
+                    
+                    <CollectionView ItemsSource="{Binding ActiveDrivers}" 
+                                    SelectionMode="None" 
+                                    VerticalOptions="FillAndExpand">
+                        
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding DriverId}" 
+                                           Grid.Column="0" 
+                                           FontSize="14" />
+                                    
+                                    <Label Text="{Binding Unit}" 
+                                           Grid.Column="1" 
+                                           FontSize="14" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Button Text="VIEW ALL" 
+                            BackgroundColor="Gray" 
+                            TextColor="White" 
+                            HorizontalOptions="Center" />
+                    
+                </StackLayout>
+            </Frame>
+
+            <!-- Statistic Report (Graph) -->
+            <Frame Grid.Column="1" 
+                   BackgroundColor="#F1F1F1" 
+                   CornerRadius="5" 
+                   Padding="10" 
+                   HasShadow="False">
+                
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="STATISTIC REPORT" 
+                               Grid.Column="0" 
+                               FontSize="16" 
+                               TextColor="Black" />
+                        
+                        <Picker Grid.Column="1" 
+                                FontSize="14" 
+                                HorizontalOptions="End">
+                            
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Daily</x:String>
+                                    <x:String>Monthly</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </Grid>
+                    <Image Source="graph_placeholder.png" 
+                           Aspect="AspectFit" 
+                           HeightRequest="200" 
+                           VerticalOptions="CenterAndExpand" />
+                    
+                    <Button Text="EXPORT (EXCEL)" 
+                            BackgroundColor="Gray" 
+                            TextColor="White" 
+                            HorizontalOptions="Center" />
+                    
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>
