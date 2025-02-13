@@ -6,7 +6,12 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Login());
+        }
+
+        public static void NavigateToShell()
+        {
+            Current.MainPage = new AppShell(); // Switch to Shell after login
         }
     }
 }

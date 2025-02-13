@@ -10,77 +10,34 @@
 
     <Shell.FlyoutHeader>
         <VerticalStackLayout>
-            <Image
-                Source="dotnet_bot.png"
-                WidthRequest="100"
-                HeightRequest="100" />
-            <Label
-                Text="User Name"
-                HorizontalTextAlignment="Center" />
+            <Image Source="dotnet_bot.png" WidthRequest="100" HeightRequest="100" />
+            <Label Text="User Name" HorizontalTextAlignment="Center" />
         </VerticalStackLayout>
     </Shell.FlyoutHeader>
 
-    <FlyoutItem
-        Title="Dashboard"
-        FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent
-            Title="Dashboard"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
+    <FlyoutItem Title="Dashboard" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent Title="Dashboard" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
     </FlyoutItem>
 
-    <FlyoutItem
-        Title="Stakeholder"
-        FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent
-            Title="Stakeholder"
-            ContentTemplate="{DataTemplate local:Stakeholder}"
-            Route="Stakeholder" />
+    <FlyoutItem Title="Stakeholder" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent Title="Stakeholder" ContentTemplate="{DataTemplate local:Stakeholder}" Route="Stakeholder" />
     </FlyoutItem>
 
-    <FlyoutItem
-        Title="Reports"
-        FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent
-            Title="Reports"
-            ContentTemplate="{DataTemplate local:Report}"
-            Route="Report" />
+    <FlyoutItem Title="Reports" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent Title="Reports" ContentTemplate="{DataTemplate local:Report}" Route="Report" />
     </FlyoutItem>
 
-    <FlyoutItem
-        Title="Vehicles"
-        FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent
-            Title="Vehicles"
-            ContentTemplate="{DataTemplate local:Vehicle}"
-            Route="Vehicle" />
+    <FlyoutItem Title="Vehicles" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent Title="Vehicles" ContentTemplate="{DataTemplate local:Vehicle}" Route="Vehicle" />
     </FlyoutItem>
 
-    <FlyoutItem
-        Title="Maintenance"
-        FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent
-            Title="Maintenance"
-            ContentTemplate="{DataTemplate local:Maintenance}"
-            Route="Maintenance" />
+    <FlyoutItem Title="Maintenance" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent Title="Maintenance" ContentTemplate="{DataTemplate local:Maintenance}" Route="Maintenance" />
     </FlyoutItem>
 
-    <FlyoutItem
-        Title="Settings"
-        FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent
-            Title="Settings"
-            ContentTemplate="{DataTemplate local:Settings}"
-            Route="Settings" />
+    <FlyoutItem Title="Settings" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent Title="Settings" ContentTemplate="{DataTemplate local:Settings}" Route="Settings" />
     </FlyoutItem>
 
-    <FlyoutItem
-        Title="Logout"
-        FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent
-            Title="Logout"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="Logout" />
-    </FlyoutItem>
-
+    
 </Shell>
