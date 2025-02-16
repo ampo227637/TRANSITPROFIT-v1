@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Microsoft.Maui.Controls;
 
@@ -6,6 +7,7 @@ namespace TRANSITPROFIT_v1
 {
     public partial class Login : ContentPage
     {
+        private readonly Connector dbConnector = new Connector();
 
         public Login()
         {
@@ -17,33 +19,59 @@ namespace TRANSITPROFIT_v1
         {
             string username = usernameEntry.Text?.Trim();
             string password = userpassword.Text?.Trim();
-            string selectedRole = rolePicker.SelectedItem?.ToString();
 
-            // Check if any field is empty
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(selectedRole))
+            // Validate input
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                await DisplayAlert("Error", "Please fill in all fields and select a role.", "OK");
+                await DisplayAlert("Error", "Please enter both username and password.", "OK");
                 return;
             }
 
-            if (AuthenticateUser(username, password, selectedRole))
+            // Authenticate user
+            bool isAuthenticated = await AuthenticateUser(username, password);
+
+            if (isAuthenticated)
             {
                 await DisplayAlert("Success", "Login successful!", "OK");
+                await Navigation.PushAsync(new MainPage()); // Navigate to MainPage
+                App.Current.MainPage = new AppShell();
 
-                // Navigate to AppShell and remove Login Page from stack
-                App.NavigateToShell();
+
             }
             else
             {
-                await DisplayAlert("Error", "Invalid username, password, or role.", "OK");
+                await DisplayAlert("Error", "Invalid username or password.", "OK");
             }
         }
 
-
-        private bool AuthenticateUser(string username, string password, string role)
+        private async Task<bool> AuthenticateUser(string username, string password)
         {
-            return (username == "admin" && password == "admin" && role == "Admin") ||
-                   (username == "employee" && password == "employee" && role == "Employee");
+            using (MySqlConnection conn = dbConnector.GetConnection())
+            {
+                if (conn == null)
+                {
+                    await DisplayAlert("Error", "Database connection failed.", "OK");
+                    return false;
+                }
+
+                try
+                {
+                    string query = "SELECT COUNT(*) FROM users WHERE username = @username AND password = @password";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        return count > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", "Authentication failed: " + ex.Message, "OK");
+                    return false;
+                }
+            }
         }
 
         private void RolePicker_SelectedIndexChanged(object sender, EventArgs e)
