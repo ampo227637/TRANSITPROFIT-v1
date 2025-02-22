@@ -2,183 +2,64 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRANSITPROFIT_v1.Login"
-             Title="Login"
-             BackgroundColor="Grey">
-    <StackLayout>
+             BackgroundColor="LightGray"
+             BackgroundImageSource="backgroundlado.png">
 
-        <Label Text="Welcome to LADOTRANSCO"
-           FontSize="26"
-           FontAttributes="Bold"
-           Padding="75,15,0,0"/>
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <Label Text="PLEASE LOGIN"
-           FontSize="20"
-           FontAttributes="Bold"
-           Padding="200,10,0,0"/>
+        <!-- Login Form -->
+        <Frame Padding="30" CornerRadius="10" BackgroundColor="White"
+               WidthRequest="350" VerticalOptions="Center" HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="20">
 
+                <!-- Header Section -->
+                <Label Text="Welcome to"
+                       FontSize="26" FontAttributes="Bold" TextColor="Black"
+                       HorizontalOptions="Center" />
 
-        <StackLayout Orientation="Horizontal">
+                <Image Source="logo.png"
+                       HeightRequest="100" WidthRequest="150"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" />
 
-            <StackLayout>
-                <!-- Picker for selecting Admin or Employee -->
+                <Label Text="PLEASE LOGIN"
+                       FontSize="20" FontAttributes="Bold" TextColor="Black"
+                       HorizontalOptions="Center" />
 
+                <!-- Username Input -->
+                <Entry Placeholder="Username" x:Name="usernameEntry"
+                       TextColor="Black" FontSize="16"
+                       BackgroundColor="Transparent"
+                       Margin="0,5,0,0"
+                       HorizontalOptions="Fill" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" />
 
-                <Picker Title="Select Role"
-                            x:Name="rolePicker"
-                            HorizontalOptions="Center"
-                            SelectedIndexChanged="RolePicker_SelectedIndexChanged"
-                            FontSize="16"
-                            TextColor="Black"
-                            BackgroundColor="White"
-                        Margin="0,0,200,0"
-                >
+                <!-- Password Input -->
+                <Entry Placeholder="Password" x:Name="userpassword"
+                       IsPassword="true" TextColor="Black" FontSize="16"
+                       BackgroundColor="Transparent"
+                       Margin="0,5,0,0"
+                       HorizontalOptions="Fill" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" />
 
-                    <Picker.Items>
-                        <x:String>Admin</x:String>
-                        <x:String>Employee</x:String>
-                    </Picker.Items>
-                </Picker>
+                <!-- Login Button -->
+                <Button Text="Login"
+                        FontSize="18" BackgroundColor="#007AFF" TextColor="White"
+                        CornerRadius="5" Padding="10"
+                        Margin="0,20,0,0"
+                        Clicked="OnLoginClicked"
+                        HorizontalOptions="Fill" />
 
-                <!-- frame for username and password-->
-                <Frame HeightRequest="300"
-                   WidthRequest="400"
-                   HorizontalOptions="Start"
-                   Margin="75,15,0,0"
-                   BackgroundColor="White"
-                   Padding="10">
+                <!-- Forgot Password -->
+                <Label Text="Forgot password?"
+                       TextColor="#007AFF" FontSize="14"
+                       HorizontalOptions="Center"
+                       Margin="0,10,0,0" />
 
-                    <StackLayout>
-
-                        <StackLayout Orientation="Horizontal"
-                                 Margin="0,20,0,0"
-                                 HorizontalOptions="Center">
-                            <Label Text="You're login as"
-                                   TextColor="Black"
-                                   FontSize="14"/>
-
-                            
-                            <Label Text="Position"
-                                   x:Name="position"
-                                   Margin ="5,0,0,0"
-                                   TextColor="Black"
-                                   FontSize="14"
-                                   FontAttributes="Bold"/>
-                        </StackLayout>
-
-                        <!-- username frame-->
-                        <Frame BackgroundColor="Transparent"
-                               BorderColor="Transparent"
-                               Margin="0,30,0,0"
-                               HeightRequest="50"
-                               WidthRequest="300"
-                               Padding="0"
-                               HasShadow="False"
-                               HorizontalOptions="Center">
-
-                            <StackLayout>
-                                <Entry Placeholder="Username"
-                                       x:Name="usernameEntry"
-                                       TextColor="Black"
-                                       FontSize="14"
-                                       BackgroundColor="Transparent"/>
-
-                                <BoxView HeightRequest="1"
-                                         BackgroundColor="Black"
-                                         WidthRequest="300"/>
-                            </StackLayout>
-
-                        </Frame>
-
-                        <!-- password frame-->
-                        <Frame BackgroundColor="Transparent"
-                               BorderColor="Transparent"
-                               HeightRequest="50"
-                               WidthRequest="300"
-                               Padding="0"
-                               HasShadow="False"
-                               HorizontalOptions="Center">
-
-                            <StackLayout>
-                                <Entry Placeholder="Password"
-                                       x:Name="userpassword"
-                                       TextColor="Black"
-                                       IsPassword="true"
-                                       FontSize="14"
-                                       BackgroundColor="Transparent"/>
-
-                                <BoxView HeightRequest="1"
-                                         BackgroundColor="Black"
-                                         WidthRequest="300"/>
-                            </StackLayout>
-
-                        </Frame>
-
-                        <!--Button Login-->
-                        <Button Text="L o g i n "
-                                Margin="0,10,0,0"
-                                FontSize="16"
-                                HeightRequest="20"
-                                BackgroundColor="Transparent"
-                                WidthRequest="300"
-                                FontAttributes="Bold"
-                                BorderWidth="1"
-                                BorderColor="Black"
-                                Clicked="OnLoginClicked"
-                            />
-
-
-                        <!--forgot password-->
-                        <StackLayout HorizontalOptions="Start"
-                                     VerticalOptions="Start">
-
-                            <Label Text="Forgot password!"
-                                   TextColor="Black"
-                                   Margin="40,10,0,0"
-                                   FontSize="12"
-                                   HorizontalOptions="Start"/>
-
-                            <BoxView BackgroundColor="Black"
-                                     HeightRequest="1"
-                                     Margin="40,0,0,0"
-                                     WidthRequest="100"/>
-
-                        </StackLayout>
-                    </StackLayout>
-
-
-                </Frame>
-
-            </StackLayout>
-
-            <StackLayout Orientation="Vertical">
-
-
-                <Label Text="Multipurpose Cooperative"
-                   FontSize="16"
-                   TextColor="Black"
-                   FontAttributes="Bold"
-                   WidthRequest="500"
-                   Margin="100,50,0,0"/>
-
-                <Label Text="Empowering communities, one member at a time."
-                   TextColor="Black"
-                   FontSize="13"
-                   Margin="50,10,0,0"/>
-
-                <Label Text="LADOTRANSCO Multipurpose Cooperative where."
-                   TextColor="Black"
-                   FontSize="13"
-                   Margin="50,0,0,0"/>
-
-                <Label Text="dreams turn into reality."
-                   TextColor="Black"
-                   FontSize="13"
-                   Margin="50,0,0,0"/>
-
-            </StackLayout>
-        </StackLayout>
-
-
-    </StackLayout>
-
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
 </ContentPage>
