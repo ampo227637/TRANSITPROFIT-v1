@@ -12,7 +12,7 @@ namespace TRANSITPROFIT_v1
         public Login()
         {
             InitializeComponent();
-            rolePicker.SelectedIndexChanged += RolePicker_SelectedIndexChanged;
+
         }
 
         private async void OnLoginClicked(object sender, EventArgs e)
@@ -74,12 +74,5 @@ namespace TRANSITPROFIT_v1
             }
         }
 
-        private void RolePicker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (rolePicker.SelectedIndex != -1)
-            {
-                position.Text = rolePicker.SelectedItem.ToString(); // Fixed reference
-            }
-        }
     }
 }

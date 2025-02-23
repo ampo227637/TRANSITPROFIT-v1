@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRANSITPROFIT_v1.Login"
-             Title="Login"
              BackgroundColor="Grey">
     <StackLayout>
 
@@ -11,64 +10,39 @@
            FontAttributes="Bold"
            Padding="75,15,0,0"/>
 
-        <Label Text="PLEASE LOGIN"
-           FontSize="20"
-           FontAttributes="Bold"
-           Padding="200,10,0,0"/>
-
 
         <StackLayout Orientation="Horizontal">
 
             <StackLayout>
-                <!-- Picker for selecting Admin or Employee -->
 
-
-                <Picker Title="Select Role"
-                            x:Name="rolePicker"
-                            HorizontalOptions="Center"
-                            SelectedIndexChanged="RolePicker_SelectedIndexChanged"
-                            FontSize="16"
-                            TextColor="Black"
-                            BackgroundColor="White"
-                        Margin="0,0,200,0"
-                >
-
-                    <Picker.Items>
-                        <x:String>Admin</x:String>
-                        <x:String>Employee</x:String>
-                    </Picker.Items>
-                </Picker>
 
                 <!-- frame for username and password-->
                 <Frame HeightRequest="300"
                    WidthRequest="400"
                    HorizontalOptions="Start"
-                   Margin="75,15,0,0"
+                   Margin="75,20,0,0"
                    BackgroundColor="White"
                    Padding="10">
 
                     <StackLayout>
 
-                        <StackLayout Orientation="Horizontal"
-                                 Margin="0,20,0,0"
-                                 HorizontalOptions="Center">
-                            <Label Text="You're login as"
-                                   TextColor="Black"
-                                   FontSize="14"/>
+                        <StackLayout Orientation="Vertical">
 
-                            
-                            <Label Text="Position"
-                                   x:Name="position"
-                                   Margin ="5,0,0,0"
+                            <Label Text="PLEASE LOGIN"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   Padding="0,20,0,0"
                                    TextColor="Black"
-                                   FontSize="14"
-                                   FontAttributes="Bold"/>
+                                   HorizontalOptions="Center"/>
+
                         </StackLayout>
+
+
 
                         <!-- username frame-->
                         <Frame BackgroundColor="Transparent"
                                BorderColor="Transparent"
-                               Margin="0,30,0,0"
+                               Margin="0,10,0,0"
                                HeightRequest="50"
                                WidthRequest="300"
                                Padding="0"
@@ -80,11 +54,9 @@
                                        x:Name="usernameEntry"
                                        TextColor="Black"
                                        FontSize="14"
-                                       BackgroundColor="Transparent"/>
+                                       BackgroundColor="Transparent"
+                                       />
 
-                                <BoxView HeightRequest="1"
-                                         BackgroundColor="Black"
-                                         WidthRequest="300"/>
                             </StackLayout>
 
                         </Frame>
@@ -106,9 +78,7 @@
                                        FontSize="14"
                                        BackgroundColor="Transparent"/>
 
-                                <BoxView HeightRequest="1"
-                                         BackgroundColor="Black"
-                                         WidthRequest="300"/>
+
                             </StackLayout>
 
                         </Frame>

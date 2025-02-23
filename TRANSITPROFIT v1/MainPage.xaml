@@ -4,9 +4,11 @@
              x:Class="TRANSITPROFIT_v1.MainPage"
              BackgroundColor="White">
 
+
     <Grid RowSpacing="10" 
           ColumnSpacing="10" 
-          Padding="20">
+          Padding="10,10,10,10"
+          >
         
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -42,12 +44,14 @@
                            FontSize="16" 
                            TextColor="Black" />
                     
-                    <Label 
+                    <Label x:Name="revenue"
                            Text="0.00" 
                            FontSize="24" 
                            TextColor="Black" 
                            FontAttributes="Bold" 
                            HorizontalTextAlignment="Center" />
+                    
+                    
                     
                 </StackLayout>
             </Frame>
