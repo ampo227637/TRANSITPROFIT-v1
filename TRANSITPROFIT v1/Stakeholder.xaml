@@ -2,172 +2,171 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRANSITPROFIT_v1.Stakeholder"
-             Title="Stakeholders"
-             BackgroundColor="#E5E5E5">
+             Title="Stakeholders Management"
+             BackgroundColor="#F5F7FA">
 
-    <VerticalStackLayout Padding="20" 
-                         Spacing="10">
-        
-        <!-- Search Bar -->
-        <SearchBar Placeholder="Search" 
-                   BackgroundColor="White" />
-
-        <!-- Tabs -->
-        <Grid ColumnSpacing="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Button Text="Members"
-                    BackgroundColor="White"
-                    TextColor="Black"
-                    FontAttributes="Bold"
-                    BorderColor="Red"
-                    BorderWidth="2"
-                    CornerRadius="10"
-                    Grid.Column="0" />
-
-            <Button Text="Admin"
-                    BackgroundColor="White"
-                    TextColor="Black"
-                    FontAttributes="Bold"
-                    BorderColor="Transparent"
-                    CornerRadius="10"
-                    Grid.Column="1" />
-        </Grid>
-
-        <!-- Section Title -->
-        <Label Text="Members"
-               FontSize="24"
-               FontAttributes="Bold"
-               TextColor="Black" />
-
-        <!-- Action Buttons -->
-        <HorizontalStackLayout Spacing="10">
-            <Button Text="Add New" 
-                    BackgroundColor="White"
-                    TextColor="Black"
-                    FontAttributes="Bold" />
-            <Button Text="Import Members" 
-                    BackgroundColor="White"
-                    TextColor="Black"
-                    FontAttributes="Bold" />
-            <Button Text="Export (Excel)" 
-                    BackgroundColor="White"
-                    TextColor="Black"
-                    FontAttributes="Bold" />
-        </HorizontalStackLayout>
-
-        <!-- Table Headers -->
-        <Grid ColumnSpacing="5" BackgroundColor="White" Padding="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-            </Grid.ColumnDefinitions>
-
-            <Label Text="PHOTO" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="0" 
-                   TextColor="Black"/>
-            
-            <Label Text="ID" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="1" 
-                   TextColor="Black"/>
-            
-            <Label Text="NAME" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="2" 
-                   TextColor="Black"/>
-            
-            <Label Text="CONTACT" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="3" 
-                   TextColor="Black"/>
-            
-            <Label Text="POSITION" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="4" 
-                   TextColor="Black"/>
-            
-            <Label Text="STATUS" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="5" 
-                   TextColor="Black"/>
-            
-            <Label Text="EMAIL" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="6" 
-                   TextColor="Black"/>
-            
-            <Label Text="PASSWORD" 
-                   FontSize="14" 
-                   FontAttributes="Bold" 
-                   Grid.Column="7" 
-                   TextColor="Black"/>
-        </Grid>
-
-        <!-- Table Content -->
-        <Frame BorderColor="Black" Padding="0" CornerRadius="5" HeightRequest="400">
-            <ScrollView>
-                <StackLayout>
-                    <!-- Add rows dynamically from the backend data -->
-                    <Grid ColumnSpacing="5" Padding="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="2*" />
-                        </Grid.ColumnDefinitions>
-
-                        <!-- Sample Row -->
-                        <Label Text="Image" 
-                               FontSize="14" 
-                               Grid.Column="0"  />
-                        <Label Text="000001" 
-                               FontSize="14" 
-                               Grid.Column="1" />
-                        <Label Text="John Doe" 
-                               FontSize="14"
-                               Grid.Column="2" />
-                        <Label Text="123456789" 
-                               FontSize="14" 
-                               Grid.Column="3" />
-                        <Label Text="Manager" 
-                               FontSize="14" 
-                               Grid.Column="4" />
-                        <Label Text="Active" 
-                               FontSize="14" 
-                               Grid.Column="5" />
-                        <Label Text="john.doe@example.com" 
-                               FontSize="14" 
-                               Grid.Column="6" />
-                        <Label Text="********" 
-                               FontSize="14" 
-                               Grid.Column="7" />
-                    </Grid>
-                    <!-- Repeat similar rows as needed -->
-                </StackLayout>
-            </ScrollView>
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header with Dashboard Stats -->
+        <Frame Grid.Row="0" BackgroundColor="#3A4B8C" Margin="0,0,0,15" Padding="20,15" CornerRadius="0">
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="15">
+                <Frame Grid.Column="0" BackgroundColor="White" Padding="15,10" CornerRadius="8">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Total Members" FontSize="14" TextColor="#5B6987" />
+                        <Label Text="127" FontSize="22" FontAttributes="Bold" TextColor="#3A4B8C" />
+                        <Label Text="+12% from last month" FontSize="12" TextColor="#4CAF50" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="1" BackgroundColor="White" Padding="15,10" CornerRadius="8">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Active Members" FontSize="14" TextColor="#5B6987" />
+                        <Label Text="118" FontSize="22" FontAttributes="Bold" TextColor="#3A4B8C" />
+                        <Label Text="92.9% activity rate" FontSize="12" TextColor="#4CAF50" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="2" BackgroundColor="White" Padding="15,10" CornerRadius="8">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="New Members" FontSize="14" TextColor="#5B6987" />
+                        <Label Text="14" FontSize="22" FontAttributes="Bold" TextColor="#3A4B8C" />
+                        <Label Text="This Month" FontSize="12" TextColor="#5B6987" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="3" BackgroundColor="White" Padding="15,10" CornerRadius="8">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Admin Access" FontSize="14" TextColor="#5B6987" />
+                        <Label Text="8" FontSize="22" FontAttributes="Bold" TextColor="#3A4B8C" />
+                        <Label Text="6.3% of total" FontSize="12" TextColor="#5B6987" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
         </Frame>
-    </VerticalStackLayout>
 
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,0,20,20" Spacing="15">
+                <!-- Search and Filters -->
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="15">
+                    <Frame Grid.Column="0" Padding="5,0" BorderColor="#E0E0E0" BackgroundColor="White" CornerRadius="8">
+                        <SearchBar Placeholder="Search by name, ID, position..." PlaceholderColor="#9AA5B1" 
+                                  BackgroundColor="Transparent" />
+                    </Frame>
+                    <Button Grid.Column="1" Text="Filters" ImageSource="filter_icon.png" 
+                           BackgroundColor="White" TextColor="#3A4B8C" BorderColor="#E0E0E0" 
+                           BorderWidth="1" CornerRadius="8" Padding="15,0" />
+                </Grid>
+
+                <!-- Tab Selection -->
+                <Frame Padding="2" BorderColor="#E0E0E0" BackgroundColor="White" CornerRadius="10" HasShadow="False">
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="0">
+                        <Button Text="Members" 
+                               BackgroundColor="#3A4B8C" TextColor="White" 
+                               FontAttributes="Bold" FontSize="14"
+                               BorderColor="Transparent" CornerRadius="8"
+                               Margin="2" Grid.Column="0" />
+
+                        <Button Text="Admin" 
+                               BackgroundColor="Transparent" TextColor="#6B7A99" 
+                               FontAttributes="Bold" FontSize="14"
+                               BorderColor="Transparent" CornerRadius="8"
+                               Margin="2" Grid.Column="1" />
+                    </Grid>
+                </Frame>
+
+                <!-- Section Title with Action Menu -->
+                <Grid ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center">
+                    <Label Grid.Column="0" Text="Members" FontSize="24" FontAttributes="Bold" TextColor="#3A4B8C" VerticalOptions="Center" />
+
+                    <Button Grid.Column="2" Text="Actions ▼" BackgroundColor="#3A4B8C" TextColor="White" 
+                           FontSize="14" CornerRadius="8" Padding="15,10" />
+                </Grid>
+
+                <!-- Quick Action Buttons -->
+                <FlexLayout JustifyContent="SpaceBetween" Wrap="Wrap">
+                    <Button Text="Add New" 
+                           BackgroundColor="White" TextColor="#3A4B8C"
+                           FontAttributes="Bold" BorderColor="#3A4B8C" BorderWidth="1"
+                           ImageSource="add_user.png" CornerRadius="8" Padding="15,10" Margin="0,0,10,10" />
+
+                    <Button Text="Import Members" 
+                           BackgroundColor="White" TextColor="#3A4B8C"
+                           FontAttributes="Bold" BorderColor="#3A4B8C" BorderWidth="1"
+                           ImageSource="import.png" CornerRadius="8" Padding="15,10" Margin="0,0,10,10" />
+
+                    <Button Text="Export Data" 
+                           BackgroundColor="White" TextColor="#3A4B8C"
+                           FontAttributes="Bold" BorderColor="#3A4B8C" BorderWidth="1"
+                           ImageSource="export.png" CornerRadius="8" Padding="15,10" Margin="0,0,10,10" />
+
+                    <Button Text="Charts and Reports" 
+                           BackgroundColor="White" TextColor="#3A4B8C"
+                           FontAttributes="Bold" BorderColor="#3A4B8C" BorderWidth="1"
+                           ImageSource="chart.png" CornerRadius="8" Padding="15,10" Margin="0,0,10,10" />
+                </FlexLayout>
+
+                <!-- Table Header -->
+                <Frame Padding="0" BorderColor="#E0E0E0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                    <VerticalStackLayout Spacing="0">
+                        <Grid ColumnDefinitions="50,80,*,*,*,100,*,*,80" ColumnSpacing="10" 
+                             BackgroundColor="#F0F4F8" Padding="15,12">
+                            <Label Text="" Grid.Column="0" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" />
+                            <Label Text="ID" Grid.Column="1" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" />
+                            <Label Text="NAME" Grid.Column="2" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" />
+                            <Label Text="CONTACT" Grid.Column="3" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" />
+                            <Label Text="POSITION" Grid.Column="4" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" />
+                            <Label Text="STATUS" Grid.Column="5" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" VerticalOptions="Center" />
+                            <Label Text="EMAIL" Grid.Column="6" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" />
+                            <Label Text="ROLE" Grid.Column="7" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" />
+                            <Label Text="ACTIONS" Grid.Column="8" FontSize="14" FontAttributes="Bold" TextColor="#5B6987" HorizontalOptions="Center" />
+                        </Grid>
+
+                        <!-- Table Content -->
+                        <CollectionView HeightRequest="450" SelectionMode="Single">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="50,80,*,*,*,100,*,*,80" ColumnSpacing="10" Padding="15,12">
+                                        <Frame Grid.Column="0" CornerRadius="20" HeightRequest="40" WidthRequest="40"
+                                              Padding="0" IsClippedToBounds="True" HasShadow="False">
+                                            <Image Source="{Binding PhotoUrl}" Aspect="AspectFill" />
+                                        </Frame>
+                                        <Label Text="{Binding Id}" Grid.Column="1" FontSize="14" TextColor="#2D3748" VerticalOptions="Center" />
+                                        <Label Text="{Binding Name}" Grid.Column="2" FontSize="14" TextColor="#2D3748" VerticalOptions="Center" />
+                                        <Label Text="{Binding Contact}" Grid.Column="3" FontSize="14" TextColor="#2D3748" VerticalOptions="Center" />
+                                        <Label Text="{Binding Position}" Grid.Column="4" FontSize="14" TextColor="#2D3748" VerticalOptions="Center" />
+
+                                        <Frame Grid.Column="5" BackgroundColor="#E3F2FD" Padding="8,3" CornerRadius="15" HorizontalOptions="Start" VerticalOptions="Center">
+                                            <Label Text="{Binding Status}" FontSize="12" TextColor="#1976D2" HorizontalOptions="Center" />
+                                        </Frame>
+
+                                        <Label Text="{Binding Email}" Grid.Column="6" FontSize="14" TextColor="#2D3748" VerticalOptions="Center" />
+                                        <Label Text="{Binding Role}" Grid.Column="7" FontSize="14" TextColor="#2D3748" VerticalOptions="Center" />
+
+                                        <HorizontalStackLayout Grid.Column="8" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+                                            <ImageButton Source="edit_icon.png" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" />
+                                            <ImageButton Source="delete_icon.png" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" />
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Pagination -->
+                <Grid ColumnDefinitions="Auto,*,Auto" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Button Grid.Column="0" Text="Previous" BackgroundColor="White" TextColor="#3A4B8C" 
+                           BorderColor="#E0E0E0" BorderWidth="1" CornerRadius="8" Margin="0,0,10,0" />
+
+                    <HorizontalStackLayout Grid.Column="1" Spacing="5" HorizontalOptions="Center">
+                        <Button Text="1" BackgroundColor="#3A4B8C" TextColor="White" CornerRadius="5" WidthRequest="35" HeightRequest="35" />
+                        <Button Text="2" BackgroundColor="White" TextColor="#5B6987" BorderColor="#E0E0E0" BorderWidth="1" CornerRadius="5" WidthRequest="35" HeightRequest="35" />
+                        <Button Text="3" BackgroundColor="White" TextColor="#5B6987" BorderColor="#E0E0E0" BorderWidth="1" CornerRadius="5" WidthRequest="35" HeightRequest="35" />
+                        <Label Text="..." TextColor="#5B6987" VerticalOptions="Center" />
+                        <Button Text="8" BackgroundColor="White" TextColor="#5B6987" BorderColor="#E0E0E0" BorderWidth="1" CornerRadius="5" WidthRequest="35" HeightRequest="35" />
+                    </HorizontalStackLayout>
+
+                    <Button Grid.Column="2" Text="Next" BackgroundColor="White" TextColor="#3A4B8C" 
+                           BorderColor="#E0E0E0" BorderWidth="1" CornerRadius="8" Margin="10,0,0,0" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

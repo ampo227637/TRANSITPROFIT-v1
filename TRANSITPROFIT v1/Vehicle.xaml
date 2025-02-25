@@ -2,11 +2,175 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRANSITPROFIT_v1.Vehicle"
-             Title="Vehicles">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Vehicles"
+             BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#212529}">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="15">
+        <!-- Header Section -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,15">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Fleet Management" FontSize="24" FontAttributes="Bold" 
+                       TextColor="{AppThemeBinding Light=#212529, Dark=#f8f9fa}" />
+                <Label Text="Decision Support System" FontSize="14" 
+                       TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+            </VerticalStackLayout>
+            <Button Grid.Column="1" Text="Add Vehicle" 
+                    BackgroundColor="{AppThemeBinding Light=#0d6efd, Dark=#0d6efd}" 
+                    TextColor="White" CornerRadius="5" />
+        </Grid>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" RowDefinitions="Auto,*">
+            <!-- Filters and Search -->
+            <Grid Grid.Row="0" ColumnDefinitions="*,*,*,Auto" Margin="0,0,0,10">
+                <Border Grid.Column="0" Margin="0,0,5,0" StrokeShape="RoundRectangle 5" 
+                        Stroke="{AppThemeBinding Light=#dee2e6, Dark=#495057}" StrokeThickness="1">
+                    <Picker Title="Vehicle Type" Margin="10,0">
+                        <Picker.Items>
+                            <x:String>All Types</x:String>
+                            <x:String>Bus</x:String>
+                            <x:String>Van</x:String>
+                            <x:String>Truck</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Border>
+
+                <Border Grid.Column="1" Margin="5,0" StrokeShape="RoundRectangle 5" 
+                        Stroke="{AppThemeBinding Light=#dee2e6, Dark=#495057}" StrokeThickness="1">
+                    <Picker Title="Status" Margin="10,0">
+                        <Picker.Items>
+                            <x:String>All Status</x:String>
+                            <x:String>Active</x:String>
+                            <x:String>Maintenance</x:String>
+                            <x:String>Out of Service</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Border>
+
+                <Border Grid.Column="2" Margin="5,0" StrokeShape="RoundRectangle 5" 
+                        Stroke="{AppThemeBinding Light=#dee2e6, Dark=#495057}" StrokeThickness="1">
+                    <Picker Title="Sort By" Margin="10,0">
+                        <Picker.Items>
+                            <x:String>Efficiency</x:String>
+                            <x:String>Mileage</x:String>
+                            <x:String>Age</x:String>
+                            <x:String>Capacity</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Border>
+
+                <Border Grid.Column="3" Margin="5,0,0,0" StrokeShape="RoundRectangle 5" 
+                        Stroke="{AppThemeBinding Light=#dee2e6, Dark=#495057}" StrokeThickness="1">
+                    <SearchBar Placeholder="Search vehicles..." 
+                               BackgroundColor="Transparent" 
+                               Margin="0" />
+                </Border>
+            </Grid>
+
+            <!-- Vehicle CollectionView -->
+            <CollectionView Grid.Row="1" SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <Image Source="no_vehicles.png" HeightRequest="120" WidthRequest="120" 
+                               Opacity="0.7" />
+                        <Label Text="No vehicles found" FontSize="18" Margin="0,15,0,5" 
+                               HorizontalOptions="Center" 
+                               TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                        <Label Text="Try adjusting your filters or add a new vehicle" 
+                               FontSize="14" HorizontalOptions="Center" 
+                               TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="0,5" Padding="15" StrokeShape="RoundRectangle 8" 
+                                StrokeThickness="1" 
+                                Stroke="{AppThemeBinding Light=#dee2e6, Dark=#495057}">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <!-- Vehicle Image or Icon -->
+                                <Frame Grid.Column="0" HeightRequest="60" WidthRequest="60" 
+                                       CornerRadius="30" Padding="0" IsClippedToBounds="True" 
+                                       BorderColor="Transparent">
+                                    <Image Source="vehicle_placeholder.png" Aspect="AspectFill" />
+                                </Frame>
+
+                                <!-- Vehicle Details -->
+                                <VerticalStackLayout Grid.Column="1" Margin="15,0" Spacing="3" 
+                                                     VerticalOptions="Center">
+                                    <Label Text="{Binding Id, StringFormat='Vehicle #{0}'}" 
+                                           FontSize="16" FontAttributes="Bold" 
+                                           TextColor="{AppThemeBinding Light=#212529, Dark=#f8f9fa}" />
+                                    <Label Text="{Binding Type}" FontSize="14" 
+                                           TextColor="{AppThemeBinding Light=#495057, Dark=#adb5bd}" />
+                                    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="15">
+                                        <Label Grid.Column="0" 
+                                               Text="{Binding Mileage, StringFormat='{0} miles'}" 
+                                               FontSize="12" 
+                                               TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                                        <Label Grid.Column="1" 
+                                               Text="{Binding FuelEfficiency, StringFormat='{0} mpg'}" 
+                                               FontSize="12" 
+                                               TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                                        <Label Grid.Column="2" 
+                                               Text="{Binding LastMaintenance, StringFormat='Maint: {0}'}" 
+                                               FontSize="12" 
+                                               TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                                        <Label Grid.Column="3" 
+                                               Text="{Binding Status}" 
+                                               FontSize="12" FontAttributes="Bold" 
+                                               TextColor="{Binding Status, Converter={StaticResource StatusColorConverter}}" />
+                                    </Grid>
+                                </VerticalStackLayout>
+
+                                <!-- KPI Indicators -->
+                                <VerticalStackLayout Grid.Column="2" Spacing="5" VerticalOptions="Center">
+                                    <Border StrokeShape="RoundRectangle 15" BackgroundColor="#28a745" 
+                                            Padding="10,5">
+                                        <Label Text="{Binding EfficiencyScore, StringFormat='{0}% efficient'}" 
+                                               TextColor="White" FontSize="12" HorizontalOptions="Center" />
+                                    </Border>
+                                    <Button Text="Details" FontSize="12" 
+                                            BackgroundColor="Transparent" 
+                                            TextColor="{AppThemeBinding Light=#0d6efd, Dark=#0d6efd}" 
+                                            CornerRadius="5" Padding="10,5" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <!-- Dashboard Summary -->
+        <Frame Grid.Row="2" BorderColor="{AppThemeBinding Light=#dee2e6, Dark=#495057}" 
+               BackgroundColor="{AppThemeBinding Light=White, Dark=#343a40}" 
+               CornerRadius="8" Margin="0,10,0,0" Padding="15">
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="15">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="Total Vehicles" FontSize="12" 
+                           TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                    <Label Text="24" FontSize="20" FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#212529, Dark=#f8f9fa}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="Available" FontSize="12" 
+                           TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                    <Label Text="18" FontSize="20" FontAttributes="Bold" TextColor="#28a745" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2">
+                    <Label Text="Maintenance" FontSize="12" 
+                           TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                    <Label Text="4" FontSize="20" FontAttributes="Bold" TextColor="#ffc107" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="3">
+                    <Label Text="Fleet Efficiency" FontSize="12" 
+                           TextColor="{AppThemeBinding Light=#6c757d, Dark=#adb5bd}" />
+                    <Label Text="87%" FontSize="20" FontAttributes="Bold" TextColor="#17a2b8" />
+                </VerticalStackLayout>
+            </Grid>
+        </Frame>
+    </Grid>
 </ContentPage>
