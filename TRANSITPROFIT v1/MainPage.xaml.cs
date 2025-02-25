@@ -11,8 +11,6 @@ namespace TRANSITPROFIT_v1
         public MainPage()
         {
             InitializeComponent();
-
-
         }
     }
 }
