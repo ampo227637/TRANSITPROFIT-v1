@@ -10,8 +10,8 @@
 
     <Shell.FlyoutHeader>
         <VerticalStackLayout>
-            <Image Source="dotnet_bot.png" WidthRequest="100" HeightRequest="100" />
-            <Label Text="User Name" HorizontalTextAlignment="Center" />
+            <Image Source="logo.png" WidthRequest="100" HeightRequest="100" />
+            <Label Text="LADTORANSCO" HorizontalTextAlignment="Center" />
         </VerticalStackLayout>
     </Shell.FlyoutHeader>
 
