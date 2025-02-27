@@ -66,6 +66,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="MySql.Data" Version="9.2.0" />
 		<PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
+		<PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="28.2.7" />
 	</ItemGroup>
 
 	<ItemGroup>
