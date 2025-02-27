@@ -12,6 +12,11 @@ namespace TRANSITPROFIT_v1
         public Login()
         {
             InitializeComponent();
+
+            ShowPasswordCheckBox.CheckedChanged += (sender, e) =>
+            {
+                userpassword.IsPassword = !e.Value;
+            };
         }
 
         private async void OnLoginClicked(object sender, EventArgs e)
@@ -32,7 +37,7 @@ namespace TRANSITPROFIT_v1
             if (isAuthenticated)
             {
                 await DisplayAlert("Success", "Login successful!", "OK");
-                await Navigation.PushAsync(new MainPage()); // Navigate to MainPage
+                await Navigation.PushAsync(new MainPage());
                 App.Current.MainPage = new AppShell();
 
 
@@ -71,6 +76,11 @@ namespace TRANSITPROFIT_v1
                     return false;
                 }
             }
+        }
+
+        private async void OnRegisNAButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Registration());
         }
 
     }

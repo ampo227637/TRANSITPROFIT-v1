@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRANSITPROFIT_v1.Stakeholder"
              Title="Stakeholders Management"
-             BackgroundColor="#F5F7FA">
+             BackgroundColor="AliceBlue">
 
     <Grid RowDefinitions="Auto,*">
         <!-- Header with Dashboard Stats -->
-        <Frame Grid.Row="0" BackgroundColor="#3A4B8C" Margin="0,0,0,15" Padding="20,15" CornerRadius="0">
+        <Frame Grid.Row="0" BackgroundColor="#3A4B8C" Margin="0,30,0,15" Padding="20,15" CornerRadius="0">
             <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="15">
-                <Frame Grid.Column="0" BackgroundColor="White" Padding="15,10" CornerRadius="8">
+                <Frame Grid.Column="0" BackgroundColor="White" Padding="15,10" CornerRadius="8" Margin="20, 0, 0, 0">
                     <VerticalStackLayout Spacing="5">
                         <Label Text="Total Members" FontSize="14" TextColor="#5B6987" />
                         <Label Text="127" FontSize="22" FontAttributes="Bold" TextColor="#3A4B8C" />
@@ -30,7 +30,7 @@
                         <Label Text="This Month" FontSize="12" TextColor="#5B6987" />
                     </VerticalStackLayout>
                 </Frame>
-                <Frame Grid.Column="3" BackgroundColor="White" Padding="15,10" CornerRadius="8">
+                <Frame Grid.Column="3" BackgroundColor="White" Padding="15,10" CornerRadius="8" Margin="0, 0, 20, 0">
                     <VerticalStackLayout Spacing="5">
                         <Label Text="Admin Access" FontSize="14" TextColor="#5B6987" />
                         <Label Text="8" FontSize="22" FontAttributes="Bold" TextColor="#3A4B8C" />
@@ -45,17 +45,20 @@
             <VerticalStackLayout Padding="20,0,20,20" Spacing="15">
                 <!-- Search and Filters -->
                 <Grid ColumnDefinitions="*,Auto" ColumnSpacing="15">
-                    <Frame Grid.Column="0" Padding="5,0" BorderColor="#E0E0E0" BackgroundColor="White" CornerRadius="8">
-                        <SearchBar Placeholder="Search by name, ID, position..." PlaceholderColor="#9AA5B1" 
-                                  BackgroundColor="Transparent" />
-                    </Frame>
+                   
+                        <SearchBar Placeholder="Search by name, ID, position..." PlaceholderColor="#9AA5B1" Margin="20, 0, 0, 0"
+                                   Keyboard="Text"
+                                    BackgroundColor="White"
+                                   Background="White"/>
+               
                     <Button Grid.Column="1" Text="Filters" ImageSource="filter_icon.png" 
                            BackgroundColor="White" TextColor="#3A4B8C" BorderColor="#E0E0E0" 
-                           BorderWidth="1" CornerRadius="8" Padding="15,0" />
+                           BorderWidth="1" CornerRadius="8" Padding="15,0"
+                            Margin="0, 0, 20, 0"/>
                 </Grid>
 
                 <!-- Tab Selection -->
-                <Frame Padding="2" BorderColor="#E0E0E0" BackgroundColor="White" CornerRadius="10" HasShadow="False">
+                <Frame Padding="2" BorderColor="#E0E0E0" BackgroundColor="White" CornerRadius="10" HasShadow="False" Margin="15, 0">
                     <Grid ColumnDefinitions="*,*" ColumnSpacing="0">
                         <Button Text="Members" 
                                BackgroundColor="#3A4B8C" TextColor="White" 
@@ -73,14 +76,14 @@
 
                 <!-- Section Title with Action Menu -->
                 <Grid ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center">
-                    <Label Grid.Column="0" Text="Members" FontSize="24" FontAttributes="Bold" TextColor="#3A4B8C" VerticalOptions="Center" />
+                    <Label Grid.Column="0" Text="Members" FontSize="24" FontAttributes="Bold" TextColor="#3A4B8C" VerticalOptions="Center" Margin="20, 0"/>
 
                     <Button Grid.Column="2" Text="Actions ▼" BackgroundColor="#3A4B8C" TextColor="White" 
-                           FontSize="14" CornerRadius="8" Padding="15,10" />
+                           FontSize="14" CornerRadius="8" Padding="15,10" Margin="20, 0"/>
                 </Grid>
 
                 <!-- Quick Action Buttons -->
-                <FlexLayout JustifyContent="SpaceBetween" Wrap="Wrap">
+                <FlexLayout JustifyContent="SpaceBetween" Wrap="Wrap" Margin="20, 0">
                     <Button Text="Add New" 
                            BackgroundColor="White" TextColor="#3A4B8C"
                            FontAttributes="Bold" BorderColor="#3A4B8C" BorderWidth="1"
@@ -103,7 +106,7 @@
                 </FlexLayout>
 
                 <!-- Table Header -->
-                <Frame Padding="0" BorderColor="#E0E0E0" CornerRadius="10" HasShadow="False" BackgroundColor="White">
+                <Frame Padding="0" BorderColor="#E0E0E0" CornerRadius="10" HasShadow="False" BackgroundColor="White" Margin="20, 0">
                     <VerticalStackLayout Spacing="0">
                         <Grid ColumnDefinitions="50,80,*,*,*,100,*,*,80" ColumnSpacing="10" 
                              BackgroundColor="#F0F4F8" Padding="15,12">

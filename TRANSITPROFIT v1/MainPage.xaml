@@ -39,7 +39,7 @@
     <Grid RowSpacing="15" 
           ColumnSpacing="15" 
           Padding="20"
-          BackgroundColor="#F1F5F9">
+          BackgroundColor="#445c84">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -54,8 +54,8 @@
 
         <!-- App Header -->
         <StackLayout Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
-            <Label Text="TransitProfit" FontSize="28" FontAttributes="Bold" TextColor="#0F172A" VerticalOptions="Center" />
-            <Label Text="Dashboard" FontSize="28" TextColor="#64748B" VerticalOptions="Center" Margin="5,0,0,0" />
+            <Label Text="TransitProfit" FontSize="28" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" />
+            <Label Text="Dashboard" FontSize="28" TextColor="Black" VerticalOptions="Center" Margin="5,0,0,0" />
             <Label Text="v1.0" FontSize="14" TextColor="#94A3B8" VerticalOptions="End" Margin="5,0,0,3" />
             <ImageButton Source="refresh_icon.png" 
                         HeightRequest="24" 
@@ -286,7 +286,7 @@
                             <CollectionView.ItemsSource>
                                 <x:Array Type="{x:Type x:Object}">
                                     <x:Object>
-                                       <!-- <x:Arguments>
+                                        <!-- <x:Arguments>
                                             <x:String>John Smith</x:String>
                                             <x:String>On Route</x:String>
                                             <x:String>A01</x:String>
@@ -294,7 +294,7 @@
                                         </x:Arguments>-->
                                     </x:Object>
                                     <x:Object>
-                                       <!-- <x:Arguments>
+                                        <!-- <x:Arguments>
                                             <x:String>Maria Garcia</x:String>
                                             <x:String>At Terminal</x:String>
                                             <x:String>B22</x:String>
@@ -313,15 +313,26 @@
                 </Frame>
 
                 <!-- Vehicle Status Card -->
-                <Frame Grid.Row="1"
+
+            </Grid>
+
+            <!-- Right Column - Reports and Insights -->
+            <Grid Grid.Column="1" RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0"
                        BackgroundColor="White" 
                        CornerRadius="12" 
                        Padding="15" 
                        HasShadow="True"
                        BorderColor="Transparent">
-                    <Grid RowSpacing="10">
+                     <Grid RowSpacing="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
@@ -369,160 +380,12 @@
                         </Grid>
                     </Grid>
                 </Frame>
+
+
+
             </Grid>
 
-            <!-- Right Column - Reports and Insights -->
-            <Grid Grid.Column="1" RowSpacing="15">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-
-                <!-- Revenue and Expenses Chart -->
-                <Frame Grid.Row="0"
-                       BackgroundColor="White" 
-                       CornerRadius="12" 
-                       Padding="15" 
-                       HasShadow="True"
-                       BorderColor="Transparent">
-                    <Grid RowSpacing="15">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Text="REVENUE and EXPENSES" Style="{StaticResource SectionTitleStyle}" Grid.Column="0" />
-
-                            <Frame Grid.Column="1" 
-                                   BackgroundColor="#F1F5F9" 
-                                   CornerRadius="8" 
-                                   Padding="10,5" 
-                                   HasShadow="False">
-                                <Picker FontSize="14" WidthRequest="120">
-                                    <Picker.ItemsSource>
-                                        <x:Array Type="{x:Type x:String}">
-                                            <x:String>Daily</x:String>
-                                            <x:String>Weekly</x:String>
-                                            <x:String>Monthly</x:String>
-                                        </x:Array>
-                                    </Picker.ItemsSource>
-                                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                                </Picker>
-                            </Frame>
-                        </Grid>
-
-                        <!-- Chart Placeholder - Replace with actual chart control -->
-                        <Grid Grid.Row="1" BackgroundColor="#F8FAFC">
-                            <Image Source="graph_placeholder.png" Aspect="AspectFit" />
-                            <Label Text="No data available for selected period" 
-                                   HorizontalOptions="Center" 
-                                   VerticalOptions="Center"
-                                   TextColor="#64748B"
-                                   FontSize="16" />
-                        </Grid>
-
-                        <Grid Grid.Row="2" ColumnSpacing="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Button Grid.Column="0" 
-                                    Text="EXPORT (EXCEL)" 
-                                    BackgroundColor="#10B981" 
-                                    Style="{StaticResource ActionButtonStyle}" />
-
-                            <Button Grid.Column="1" 
-                                    Text="PRINT REPORT" 
-                                    BackgroundColor="#64748B" 
-                                    Style="{StaticResource ActionButtonStyle}" />
-
-                            <Button Grid.Column="2" 
-                                    Text="FORECAST" 
-                                    BackgroundColor="#8B5CF6" 
-                                    Style="{StaticResource ActionButtonStyle}" />
-                        </Grid>
-                    </Grid>
-                </Frame>
-
-                <!-- Insight Cards -->
-                <Grid Grid.Row="1" ColumnSpacing="15">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <!-- Profit Opportunity Insight -->
-                    <Frame Grid.Column="0"
-                           BackgroundColor="White" 
-                           CornerRadius="12" 
-                           Padding="15" 
-                           HasShadow="True"
-                           BorderColor="Transparent">
-                        <Grid RowSpacing="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <StackLayout Grid.Row="0" Orientation="Horizontal">
-                                <Image Source="lightbulb_icon.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
-                                <Label Text="OPPORTUNITY INSIGHT" Margin="5,0,0,0" FontSize="16" TextColor="#0F172A" FontAttributes="Bold" VerticalOptions="Center" />
-                            </StackLayout>
-
-                            <Label Grid.Row="1" 
-                                   Text="Increasing passenger capacity by 15% on the Placida route could potentially increase revenue by $450 daily based on current demand patterns." 
-                                   TextColor="#334155" 
-                                   VerticalOptions="Center" />
-
-                            <Button Grid.Row="2" 
-                                    Text="VIEW DETAILS" 
-                                    BackgroundColor="#F59E0B" 
-                                    Style="{StaticResource ActionButtonStyle}" />
-                        </Grid>
-                    </Frame>
-
-                    <!-- Efficiency Alert -->
-                    <Frame Grid.Column="1"
-                           BackgroundColor="White" 
-                           CornerRadius="12" 
-                           Padding="15" 
-                           HasShadow="True"
-                           BorderColor="Transparent">
-                        <Grid RowSpacing="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <StackLayout Grid.Row="0" Orientation="Horizontal">
-                                <Image Source="alert_icon.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
-                                <Label Text="EFFICIENCY ALERT" Margin="5,0,0,0" FontSize="16" TextColor="#0F172A" FontAttributes="Bold" VerticalOptions="Center" />
-                            </StackLayout>
-
-                            <Label Grid.Row="1" 
-                                   Text="Fuel consumption on Banking route is 12% higher than average. Consider maintenance check or route optimization to improve efficiency." 
-                                   TextColor="#334155" 
-                                   VerticalOptions="Center" />
-
-                            <Button Grid.Row="2" 
-                                    Text="TAKE ACTION" 
-                                    BackgroundColor="#EF4444" 
-                                    Style="{StaticResource ActionButtonStyle}" />
-                        </Grid>
-                    </Frame>
-                </Grid>
-            </Grid>
         </Grid>
     </Grid>
+
 </ContentPage>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TRANSITPROFIT_v1.Report"
-             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#1F1F1F}"
+             BackgroundColor="#64748B"
              Title="Reports">
 
     <Grid RowDefinitions="Auto,Auto,*,Auto" 
@@ -13,27 +13,35 @@
         <HorizontalStackLayout Grid.Row="0">
             <Label Text="Reports Dashboard" 
                    FontSize="24" 
+                   TextColor="White"
                    FontAttributes="Bold"
-                   VerticalOptions="Center" />
+                   VerticalOptions="Center"
+                   Margin="20, 10"/>
 
-            <Button Text="Export" 
+            <Button Text="EXPORT" 
                     Margin="20,0,0,0"
+                    FontAttributes="Bold"
+                    FontSize="17"
                     WidthRequest="100"
-                    BackgroundColor="{AppThemeBinding Light=#0078D7, Dark=#4CC2FF}"
+                    HeightRequest="20"
+                    MinimumHeightRequest="30"
                     TextColor="White"
                     CornerRadius="4"
-                    HorizontalOptions="End" />
+                    HorizontalOptions="End"
+                    Padding="0"/>
         </HorizontalStackLayout>
 
         <!-- Filters Section -->
         <Frame Grid.Row="1" 
+               Margin="20, 0"
                Padding="16" 
                CornerRadius="8"
+               BackgroundColor="White"
                BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#333333}">
             <Grid ColumnDefinitions="*,*,*,Auto" ColumnSpacing="16">
                 <VerticalStackLayout Grid.Column="0">
                     <Label Text="Date Range" FontAttributes="Bold" Margin="0,0,0,4" />
-                    <Picker Title="Select Period">
+                    <Picker Title="Select Period" BackgroundColor="White">
                         <Picker.Items>
                             <x:String>Last 7 Days</x:String>
                             <x:String>Last 30 Days</x:String>
@@ -45,7 +53,7 @@
 
                 <VerticalStackLayout Grid.Column="1">
                     <Label Text="Route" FontAttributes="Bold" Margin="0,0,0,4" />
-                    <Picker Title="Select Route">
+                    <Picker Title="Select Route" BackgroundColor="White">
                         <Picker.Items>
                             <x:String>All Routes</x:String>
                             <x:String>North Route</x:String>
@@ -58,7 +66,7 @@
 
                 <VerticalStackLayout Grid.Column="2">
                     <Label Text="Metric" FontAttributes="Bold" Margin="0,0,0,4" />
-                    <Picker Title="Select Metric">
+                    <Picker Title="Select Metric" BackgroundColor="White">
                         <Picker.Items>
                             <x:String>Revenue</x:String>
                             <x:String>Expenses</x:String>
@@ -70,10 +78,10 @@
                 </VerticalStackLayout>
 
                 <Button Grid.Column="3"
-                        Text="Apply"
+                        Text="APPLY"
                         VerticalOptions="End"
-                        HeightRequest="40"
-                        BackgroundColor="{AppThemeBinding Light=#0078D7, Dark=#4CC2FF}"
+                        HeightRequest="20"
+                        MinimumHeightRequest="33"
                         TextColor="White"
                         CornerRadius="4" />
             </Grid>
@@ -83,7 +91,8 @@
         <ScrollView Grid.Row="2">
             <Grid RowDefinitions="Auto,Auto,*" RowSpacing="16">
                 <!-- Summary Cards -->
-                <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="16">
+                <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="16"
+                      Margin="20, 5">
                     <!-- Revenue Card -->
                     <Frame Grid.Column="0" 
                            Padding="16" 
@@ -161,6 +170,7 @@
                 <Frame Grid.Row="1" 
                        Padding="16" 
                        CornerRadius="8"
+                       Margin="20, 10"
                        BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#333333}">
                     <VerticalStackLayout>
                         <Label Text="Revenue vs Expenses Trend" 
@@ -187,6 +197,7 @@
                 <Frame Grid.Row="2" 
                        Padding="16" 
                        CornerRadius="8"
+                       Margin="20, 0"
                        BorderColor="{AppThemeBinding Light=#E0E0E0, Dark=#333333}">
                     <VerticalStackLayout>
                         <Grid ColumnDefinitions="Auto,*,*,*,*">
@@ -280,10 +291,11 @@
         <!-- Action Buttons -->
         <HorizontalStackLayout Grid.Row="3" 
                                HorizontalOptions="End" 
-                               Spacing="12">
+                               Spacing="12"
+                               Margin="0, 0, 20, 0">
             <Button Text="Download PDF" 
                     WidthRequest="150"
-                    BackgroundColor="Transparent"
+                    BackgroundColor="White"
                     TextColor="{AppThemeBinding Light=#0078D7, Dark=#4CC2FF}"
                     BorderColor="{AppThemeBinding Light=#0078D7, Dark=#4CC2FF}"
                     BorderWidth="1"
