@@ -15,9 +15,6 @@
         </VerticalStackLayout>
     </Shell.FlyoutHeader>
 
-
-    <ShellContent Route="login" ContentTemplate="{DataTemplate local:MainPage}" />
-
     <FlyoutItem Title="Dashboard" FlyoutDisplayOptions="AsSingleItem">
         <ShellContent Title="Dashboard" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
     </FlyoutItem>
@@ -42,7 +39,5 @@
         <ShellContent Title="Settings" ContentTemplate="{DataTemplate local:Settings}" Route="Settings" />
     </FlyoutItem>
 
-    <ShellContent Route="register" ContentTemplate="{DataTemplate local:Login}" />
-
-
+    
 </Shell>

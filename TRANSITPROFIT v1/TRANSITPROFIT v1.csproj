@@ -75,9 +75,6 @@
 	  <MauiXaml Update="Maintenance.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Registration.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Report.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

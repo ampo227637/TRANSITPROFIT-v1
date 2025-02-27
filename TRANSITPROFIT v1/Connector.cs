@@ -5,7 +5,7 @@ namespace TRANSITPROFIT_v1
 {
     public class Connector
     {
-        private readonly string connectionString = "Server=localhost;Database=LoginLado;User ID=root;Password=;SslMode=none;";
+        private readonly string connectionString = "Server=localhost;Database=LADOTRANSCOV1;User ID=root;Password=;SslMode=none;";
 
         public MySqlConnection GetConnection()
         {
